@@ -66,7 +66,7 @@
       { "key": "policeEnabled", "name": "显示公安备案", "type": "switch", "default": false, "help": "在页脚显示公安备案信息" },
       { "key": "policeNumber", "name": "公安备案号", "type": "string", "default": "", "help": "公安备案号（如：京公网安备 11010502000000号）" },
       { "key": "policeUrl", "name": "公安备案跳转链接", "type": "string", "default": "", "help": "点击公安备案号跳转的链接地址，留空则不跳转" },
-      { "key": "policeHtml", "name": "公安备案HTML", "type": "string", "default": "", "help": "自定义HTML格式的公安备案信息" },
+      { "key": "policeHtml", "name": "公安备案HTML", "type": "richtext", "default": "", "help": "自定义HTML格式的公安备案信息" },
       { "name": "自定义背景", "type": "title" },
       { "key": "backgroundEnabled", "name": "启用自定义背景", "type": "switch", "default": false, "help": "启用后可设置自定义图片或视频作为页面背景" },
       { "key": "backgroundType", "name": "背景类型", "type": "select", "default": "image", "options": "image,video", "help": "选择背景类型：图片或视频" },

@@ -466,6 +466,14 @@ const useAppStore = defineStore('app', () => {
     return 'https://beian.miit.gov.cn/'
   })
 
+  const icpHtml = computed<string>(() => {
+    const settings = publicSettings.value?.theme_settings
+    if (settings && typeof settings.icpHtml === 'string' && settings.icpHtml.trim()) {
+      return settings.icpHtml.trim()
+    }
+    return ''
+  })
+
   // 计算属性：公安备案配置
   const policeEnabled = computed<boolean>(() => {
     const settings = publicSettings.value?.theme_settings
@@ -487,6 +495,14 @@ const useAppStore = defineStore('app', () => {
     const settings = publicSettings.value?.theme_settings
     if (settings && typeof settings.policeUrl === 'string' && settings.policeUrl.trim()) {
       return settings.policeUrl.trim()
+    }
+    return ''
+  })
+
+  const policeHtml = computed<string>(() => {
+    const settings = publicSettings.value?.theme_settings
+    if (settings && typeof settings.policeHtml === 'string' && settings.policeHtml.trim()) {
+      return settings.policeHtml.trim()
     }
     return ''
   })
@@ -645,9 +661,11 @@ const useAppStore = defineStore('app', () => {
     icpEnabled,
     icpNumber,
     icpUrl,
+    icpHtml,
     policeEnabled,
     policeNumber,
     policeUrl,
+    policeHtml,
     backgroundEnabled,
     backgroundType,
     lightBackgroundUrl,

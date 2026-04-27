@@ -36,8 +36,8 @@ const containerStyle = computed(() =>
 )
 
 // 是否显示备案信息
-const showIcp = computed(() => appStore.icpEnabled && appStore.icpNumber)
-const showPolice = computed(() => appStore.policeEnabled && appStore.policeNumber)
+const showIcp = computed(() => appStore.icpEnabled && (appStore.icpNumber || appStore.icpHtml))
+const showPolice = computed(() => appStore.policeEnabled && (appStore.policeNumber || appStore.policeHtml))
 const showFiling = computed(() => showIcp.value || showPolice.value)
 
 // 是否启用模糊背景
@@ -94,16 +94,16 @@ const blurClass = computed(() => {
         <!-- 主题信息 -->
         <div class="flex flex-wrap gap-1 items-center">
           <NText :depth="3" class="text-sm">
-            Theme by
+            Theme Modify by
           </NText>
           <a
-            href="https://github.com/lyimoexiao/komari-theme-naive"
+            href="https://hn3.top"
             target="_blank"
             rel="noopener noreferrer"
             class="text-decoration-none transition-opacity hover:opacity-80"
           >
             <NText type="primary" class="text-sm font-medium">
-              Komari Naive
+              MAKER STUDIO
             </NText>
           </a>
           <NText :depth="3" class="text-xs font-mono ml-1">
@@ -122,9 +122,14 @@ const blurClass = computed(() => {
           rel="noopener noreferrer"
           class="text-decoration-none transition-opacity hover:opacity-70"
         >
-          <NText :depth="3" class="text-xs">
-            {{ appStore.icpNumber }}
-          </NText>
+          <template v-if="appStore.icpHtml">
+            <span v-html="appStore.icpHtml"></span>
+          </template>
+          <template v-else>
+            <NText :depth="3" class="text-xs">
+              {{ appStore.icpNumber }}
+            </NText>
+          </template>
         </a>
 
         <!-- 分隔符 -->
@@ -141,13 +146,23 @@ const blurClass = computed(() => {
             rel="noopener noreferrer"
             class="text-decoration-none transition-opacity hover:opacity-70"
           >
-            <NText :depth="3" class="text-xs">
+            <template v-if="appStore.policeHtml">
+              <span v-html="appStore.policeHtml"></span>
+            </template>
+            <template v-else>
+              <NText :depth="3" class="text-xs">
+                {{ appStore.policeNumber }}
+              </NText>
+            </template>
+          </a>
+          <template v-else>
+            <template v-if="appStore.policeHtml">
+              <span v-html="appStore.policeHtml"></span>
+            </template>
+            <NText v-else :depth="3" class="text-xs">
               {{ appStore.policeNumber }}
             </NText>
-          </a>
-          <NText v-else :depth="3" class="text-xs">
-            {{ appStore.policeNumber }}
-          </NText>
+          </template>
         </template>
       </div>
     </div>

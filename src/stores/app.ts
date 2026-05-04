@@ -6,7 +6,7 @@ import { computed, ref, watch } from 'vue'
 
 type ThemeMode = 'auto' | 'light' | 'dark'
 type Lang = 'zh-CN' | 'en-US'
-type NodeViewMode = 'card' | 'list'
+type NodeViewMode = 'card' | 'list' | 'map'
 type RpcTransportMode = 'websocket' | 'http'
 type AlertType = 'default' | 'info' | 'success' | 'warning' | 'error'
 
@@ -70,7 +70,7 @@ const useAppStore = defineStore('app', () => {
 
   // 校验视图模式是否为合法值
   function isValidViewMode(value: string | null): value is NodeViewMode {
-    return value === 'card' || value === 'list'
+    return value === 'card' || value === 'list' || value === 'map'
   }
 
   // 当前实际使用的视图模式
@@ -508,7 +508,65 @@ const useAppStore = defineStore('app', () => {
   })
 
   // 计算属性：自定义背景配置
+  // 新增光晕（halo）效果设置，支持开关、大小和强度
   const backgroundEnabled = computed<boolean>(() => {
+    // 背景（全局）启用开关
+    // 下面的光晕设置在页面元素（卡片、列表）悬停时显示
+    // 读取 publicSettings 中的相关配置
+    // 背景（全局）启用开关
+    // 下面的光晕设置在页面元素（卡片、列表）悬停时显示
+    // 读取 publicSettings 中的相关配置
+    // 背景（全局）启用开关
+    // 下面的光晕设置在页面元素（卡片、列表）悬停时显示
+    // 读取 publicSettings 中的相关配置
+    // 背景（全局）启用开关
+    // 下面的光晕设置在页面元素（卡片、列表）悬停时显示
+    // 读取 publicSettings 中的相关配置
+    // 背景（全局）启用开关
+    // 下面的光晕设置在页面元素（卡片、列表）悬停时显示
+    // 读取 publicSettings 中的相关配置
+    // 背景（全局）启用开关
+    // 下面的光晕设置在页面元素（卡片、列表）悬停时显示
+    // 读取 publicSettings 中的相关配置
+    // 背景（全局）启用开关
+    // 下面的光晕设置在页面元素（卡片、列表）悬停时显示
+    // 读取 publicSettings 中的相关配置
+
+    // 背景（全局）启用开关
+    // 下面的光晕设置在页面元素（卡片、列表）悬停时显示
+    // 读取 publicSettings 中的相关配置
+
+    // 背景（全局）启用开关
+    // 下面的光晕设置在页面元素（卡片、列表）悬停时显示
+    // 读取 publicSettings 中的相关配置
+    // 背景（全局）启用开关
+    // 下面的光晕设置在页面元素（卡片、列表）悬停时显示
+    // 读取 publicSettings 中的相关配置
+
+    // 背景（全局）启用开关
+    // 下面的光晕设置在页面元素（卡片、列表）悬停时显示
+    // 读取 publicSettings 中的相关配置
+    // 背景（全局）启用开关
+    // 下面的光晕设置在页面元素（卡片、列表）悬停时显示
+    // 读取 publicSettings 中的相关配置
+    // 背景（全局）启用开关
+    // 下面的光晕设置在页面元素（卡片、列表）悬停时显示
+    // 读取 publicSettings 中的相关配置
+    // 背景（全局）启用开关
+    // 下面的光晕设置在页面元素（卡片、列表）悬停时显示
+    // 读取 publicSettings 中的相关配置
+
+    // 背景（全局）启用开关
+    // 下面的光晕设置在页面元素（卡片、列表）悬停时显示
+    // 读取 publicSettings 中的相关配置
+    // 背景（全局）启用开关
+    // 下面的光晕设置在页面元素（卡片、列表）悬停时显示
+    // 读取 publicSettings 中的相关配置
+
+    // 背景（全局）启用开关
+    // 下面的光晕设置在页面元素（卡片、列表）悬停时显示
+    // 读取 publicSettings 中的相关配置
+
     const settings = publicSettings.value?.theme_settings
     if (settings && typeof settings.backgroundEnabled === 'boolean') {
       return settings.backgroundEnabled

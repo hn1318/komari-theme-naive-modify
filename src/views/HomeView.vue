@@ -4,6 +4,7 @@ import { NAlert, NDivider, NEmpty, NInput, NRadioButton, NRadioGroup, NTabPane, 
 import { computed, defineAsyncComponent, nextTick, onActivated, onDeactivated, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import MarkdownRenderer from '@/components/MarkdownRenderer.vue'
+import WorldMap from '@/components/WorldMap.vue'
 import { useAppStore } from '@/stores/app'
 import { useNodesStore } from '@/stores/nodes'
 import { isRegionMatch } from '@/utils/regionHelper'
@@ -195,6 +196,9 @@ const blurClass = computed(() => {
           <NRadioButton value="list" class="view-selector-item">
             <div class="i-icon-park-outline-view-list" />
           </NRadioButton>
+          <NRadioButton value="map" class="view-selector-item">
+            <div class="i-icon-park-outline-map" />
+          </NRadioButton>
         </NRadioGroup>
       </div>
       <div class="nodes">
@@ -206,6 +210,7 @@ const blurClass = computed(() => {
             </div>
             <!-- List 视图 -->
             <NodeList v-else-if="nodeList.length !== 0 && appStore.nodeViewMode === 'list'" :nodes="nodeList" @click="handleNodeClick" />
+              <WorldMap v-else-if="appStore.nodeViewMode === 'map'" />
             <!-- 空状态 -->
             <div v-else class="text-gray-500 text-center">
               <NEmpty description="暂无节点" />
@@ -220,6 +225,7 @@ const blurClass = computed(() => {
           </div>
           <!-- List 视图 -->
           <NodeList v-else-if="nodeList.length !== 0 && appStore.nodeViewMode === 'list'" :nodes="nodeList" @click="handleNodeClick" />
+              <WorldMap v-else-if="appStore.nodeViewMode === 'map'" />
           <!-- 空状态 -->
           <div v-else class="text-gray-500 text-center">
             <NEmpty description="暂无节点" />

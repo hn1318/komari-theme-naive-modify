@@ -123,7 +123,7 @@ const blurClass = computed(() => {
           class="text-decoration-none transition-opacity hover:opacity-70"
         >
           <template v-if="appStore.icpHtml">
-            <span v-html="appStore.icpHtml"></span>
+            <span v-html="appStore.icpHtml" />
           </template>
           <template v-else>
             <NText :depth="3" class="text-xs">
@@ -147,7 +147,7 @@ const blurClass = computed(() => {
             class="text-decoration-none transition-opacity hover:opacity-70"
           >
             <template v-if="appStore.policeHtml">
-              <span v-html="appStore.policeHtml"></span>
+              <span v-html="appStore.policeHtml" />
             </template>
             <template v-else>
               <NText :depth="3" class="text-xs">
@@ -157,7 +157,7 @@ const blurClass = computed(() => {
           </a>
           <template v-else>
             <template v-if="appStore.policeHtml">
-              <span v-html="appStore.policeHtml"></span>
+              <span v-html="appStore.policeHtml" />
             </template>
             <NText v-else :depth="3" class="text-xs">
               {{ appStore.policeNumber }}

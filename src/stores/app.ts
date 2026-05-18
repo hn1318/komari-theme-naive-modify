@@ -61,7 +61,7 @@ const useAppStore = defineStore('app', () => {
     const settings = publicSettings.value?.theme_settings
     if (settings && typeof settings.defaultViewMode === 'string') {
       const mode = settings.defaultViewMode
-      if (mode === 'card' || mode === 'list') {
+      if (mode === 'card' || mode === 'list' || mode === 'map') {
         return mode
       }
     }

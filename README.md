@@ -6,7 +6,9 @@
 <img src="docs/preview.png" alt="Komari Theme Naive" />
 </a>
 <p>新增了全球地图视图，以及更加自定义的备案文本框</p>
-
+<a href="https://github.com/hn1318/komari-theme-naive-modify">
+<img src="docs/map.png" alt="Komari Theme Naive" />
+</a>
 ## 使用
 
 1. 从 [Release 页面](https://github.com/hn1318/komari-theme-naive-modify/releases) 下载最新的 `komari-theme-naive-build-*.zip` 文件

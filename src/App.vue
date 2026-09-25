@@ -5,10 +5,14 @@ import Footer from '@/components/Footer.vue'
 import Header from '@/components/Header.vue'
 import LoadingCover from '@/components/LoadingCover.vue'
 import Provider from '@/components/Provider.vue'
+import { useMouseGlow } from '@/composables/useMouseGlow'
 import { useAppStore } from '@/stores/app'
 import { destroyInitManager, initApp } from '@/utils/init'
 
 const appStore = useAppStore()
+
+// 全局「卡片鼠标亮光」效果（跟随鼠标的柔光，受 cardMouseGlow 设置控制）
+useMouseGlow()
 
 // 计算页面容器的样式
 const pageContainerStyle = computed(() => {

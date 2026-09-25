@@ -361,7 +361,7 @@ const columnTitles: Record<string, string> = {
       <NListItem
         v-for="node in sortedNodes"
         :key="node.uuid"
-        class="node-list-row"
+        class="node-list-row glow-card"
         :class="{ 'node-list-row--offline': !node.online }"
         :style="rowHeightStyle"
         @click="handleClick(node)"

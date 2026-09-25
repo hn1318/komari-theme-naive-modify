@@ -158,7 +158,7 @@ function handleCardKeydown(event: KeyboardEvent): void {
   >
     <NCard
       hoverable
-      class="node-card w-full cursor-pointer transition-all duration-200" :class="[
+      class="node-card glow-card w-full cursor-pointer transition-all duration-200" :class="[
         `node-card--${appStore.cardSize}`,
         props.node.online ? 'node-card--online hover:border-primary' : 'node-card--offline',
         { 'light-card-contrast': appStore.lightCardContrast && !appStore.isDark && !isGlassEnabled },

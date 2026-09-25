@@ -17,3 +17,35 @@ html.dark .glass-surface-enabled {
     inset 0 1px 0 color-mix(in srgb, white 8%, transparent),
     0 8px 28px color-mix(in srgb, black 24%, transparent);
 }
+
+/* 卡片鼠标亮光效果：柔光跟随鼠标位置（仅 html.glow-enabled 时启用） */
+html.glow-enabled .glow-card {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    border-radius: inherit;
+    background: radial-gradient(
+      300px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+      color-mix(in srgb, var(--primary-color, #18a058) 18%, transparent),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.glow-enabled .glow-card::after {
+    transition: none;
+  }
+}

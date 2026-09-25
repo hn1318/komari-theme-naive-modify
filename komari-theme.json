@@ -71,6 +71,8 @@
       { "key": "policeNumber", "name": "公安备案号", "type": "string", "default": "", "help": "公安备案号（如：京公网安备 11010502000000号）" },
       { "key": "policeUrl", "name": "公安备案跳转链接", "type": "string", "default": "", "help": "点击公安备案号跳转的链接地址，留空则不跳转" },
       { "key": "customFilingHtml", "name": "自定义备案 HTML", "type": "richtext", "default": "", "help": "在页脚备案区域插入自定义 HTML 片段（如 UptimeRobot 状态徽章、自定义链接等）。填写后显示在备案区域，提供比标准备案号更强的可自定义性" },
+      { "name": "视觉效果", "type": "title" },
+      { "key": "cardMouseGlow", "name": "卡片鼠标亮光", "type": "switch", "default": true, "help": "鼠标经过卡片时显示跟随鼠标的柔光，全局生效（节点卡片、数据总览、列表行、图表卡片），颜色跟随主题主色" },
       { "name": "自定义背景", "type": "title" },
       { "key": "backgroundEnabled", "name": "启用自定义背景", "type": "switch", "default": false, "help": "启用后可设置自定义图片或视频作为页面背景" },
       { "key": "backgroundType", "name": "背景类型", "type": "select", "default": "image", "options": "image,video", "help": "选择背景类型：图片或视频" },

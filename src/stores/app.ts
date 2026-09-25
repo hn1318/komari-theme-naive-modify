@@ -596,6 +596,15 @@ const useAppStore = defineStore('app', () => {
     return 12
   })
 
+  // 计算属性：卡片鼠标亮光效果（全局，含节点卡片/数据总览/列表行/图表卡片）
+  const cardMouseGlow = computed<boolean>(() => {
+    const settings = publicSettings.value?.theme_settings
+    if (settings && typeof settings.cardMouseGlow === 'boolean') {
+      return settings.cardMouseGlow
+    }
+    return true
+  })
+
   // 当 publicSettings 加载后，如果 localStorage 没有保存过视图模式或值为非法值，使用默认值
   watch(publicSettings, (settings) => {
     if (settings && !isValidViewMode(storedViewMode.value)) {
@@ -705,6 +714,7 @@ const useAppStore = defineStore('app', () => {
     backgroundBlur,
     backgroundOverlay,
     cardBlurRadius,
+    cardMouseGlow,
     isLoggedIn,
     userInfo,
     publicSettings,

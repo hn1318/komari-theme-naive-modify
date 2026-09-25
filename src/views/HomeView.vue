@@ -18,6 +18,7 @@ defineOptions({
 const NodeCard = defineAsyncComponent(() => import('@/components/NodeCard.vue'))
 const NodeGeneralCards = defineAsyncComponent(() => import('@/components/NodeGeneralCards.vue'))
 const NodeList = defineAsyncComponent(() => import('@/components/NodeList.vue'))
+const NodeMap = defineAsyncComponent(() => import('@/components/NodeMap.vue'))
 
 const appStore = useAppStore()
 const { glassSurfaceStyle, isGlassEnabled } = useGlassSurface()
@@ -200,6 +201,9 @@ const cardGridStyle = computed(() => ({
             <NRadioButton value="list" class="view-selector-item" aria-label="列表视图">
               <div class="i-icon-park-outline-view-list" />
             </NRadioButton>
+            <NRadioButton value="map" class="view-selector-item" aria-label="地图视图">
+              <div class="i-icon-park-outline-earth" />
+            </NRadioButton>
           </NRadioGroup>
         </div>
       </div>
@@ -208,6 +212,7 @@ const cardGridStyle = computed(() => ({
           <NodeCard v-for="node in nodeList" :key="node.uuid" :node="node" @click="handleNodeClick(node)" />
         </div>
         <NodeList v-else-if="nodeList.length !== 0 && appStore.nodeViewMode === 'list'" :nodes="nodeList" @click="handleNodeClick" />
+        <NodeMap v-else-if="nodeList.length !== 0 && appStore.nodeViewMode === 'map'" :nodes="nodeList" />
         <div v-else class="text-gray-500 text-center">
           <NEmpty description="暂无节点" />
         </div>

@@ -527,6 +527,7 @@ onMounted(() => {
       '--ping-radius': themeVars.borderRadius,
       '--ping-surface': themeVars.cardColor,
       '--ping-surface-hover': themeVars.hoverColor,
+      '--ping-text': themeVars.textColorBase,
     }"
   >
     <div class="ping-toolbar">
@@ -681,6 +682,15 @@ onMounted(() => {
 <style scoped>
 .ping-chart {
   --ping-control-height: 32px;
+}
+
+/* 修复：Naive UI 的 NSpin 会把 --n-color / --n-text-color 设为主题主色
+ （spin 主题 color/textColor 均为 primaryColor，默认绿色）并沿子树继承，
+ 导致内含 .glass-surface-enabled 的任务选择卡片背景与文字被染成主色。
+ 这里在 spin 内容区把它们重置为卡片底色与主题文字色。 */
+.ping-chart :deep(.n-spin-content) {
+  --n-color: var(--ping-surface);
+  --n-text-color: var(--ping-text);
 }
 
 .ping-toolbar,
